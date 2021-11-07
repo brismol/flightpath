@@ -1,17 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Scheduler from './Scheduler';
+import Flights from './schedulingComponents/Flights';
+import Planes from './schedulingComponents/Planes';
+import Schedule from './schedulingComponents/Schedule';
+import TimeVisual from './schedulingComponents/TimeVisual';
 
 /**
  * COMPONENT
  */
 export const Home = (props) => {
-  const { username } = props;
-
   return (
-    <div>
-      <h3>Welcome, {username}</h3>
-      <Scheduler />
+    <div className="container" id="mainGrid">
+      <Planes />
+      <Schedule />
+      <Flights />
+      <TimeVisual />
     </div>
   );
 };

@@ -19,3 +19,37 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+#nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2rem;
+  }
+
+
+  #mainGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 1rem;
+  }
+
+  #schedule {
+     color: blue;
+     grid-column: span 2;
+  }
+
+  #timeVisualize {
+    grid-column: span 4;
+  }
+
+  .border {
+      border: 1px solid black
+  }

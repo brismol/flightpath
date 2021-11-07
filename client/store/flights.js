@@ -13,10 +13,11 @@ const fetchedFlights = (flights) => ({ type: FETCHED_FLIGHTS, flights });
 /**
  * THUNK CREATORS
  */
-export const getFlights = () => {
+export const getFlights = (offset) => {
   return async (dispatch) => {
     const res = await axios.get(
-      'https://infinite-dawn-93085.herokuapp.com/flights'
+      'https://infinite-dawn-93085.herokuapp.com/flights',
+      { params: { offset: offset, limit: 25 } }
     );
     const flights = res.data.data;
     dispatch(fetchedFlights(flights));
