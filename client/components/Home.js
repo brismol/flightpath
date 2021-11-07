@@ -11,6 +11,9 @@ import TimeVisual from './schedulingComponents/TimeVisual';
 export const Home = (props) => {
   return (
     <div className="container" id="mainGrid">
+      <h4 className="center">Aircraft</h4>
+      <h4 className="center span-2">Rotation</h4>
+      <h4 className="center">Flights</h4>
       <Planes />
       <Schedule />
       <Flights />

@@ -37,12 +37,11 @@ form div {
   #mainGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(3);
     grid-gap: 1rem;
   }
 
-  #schedule {
-     color: blue;
+  .span-2{
      grid-column: span 2;
   }
 
@@ -53,3 +52,37 @@ form div {
   .border {
       border: 1px solid black
   }
+
+  .padding {
+      padding: 1rem
+  }
+
+  .flightsContainer{
+      height: 75vh;
+      overflow: scroll;
+      padding: 1rem;
+  }
+
+
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card:hover {
+    background-color:  #e6f5ff;
+    transition: 1s;
+    cursor: pointer;
+    box-shadow: 3px 2px 2px lightblue;
+}
+
+.card {
+    padding: .5rem;
+    border-radius: 5%;
+}
+
+.center {
+    margin: auto;
+}

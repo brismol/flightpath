@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { getPlanes } from '../../store/planes';
+import { Link } from 'react-router-dom';
 
 export const Planes = ({ planes, getPlanes }) => {
   const [loading, setLoading] = useState(false);
@@ -16,13 +17,15 @@ export const Planes = ({ planes, getPlanes }) => {
   }, []);
 
   return (
-    <div className="border">
+    <div className="border flightsContainer">
       {loading ? (
         <div>loading...</div>
       ) : (
         <div>
           {planes.map((plane) => (
-            <div key={plane.ident}>{plane.ident}</div>
+            <Link to={`/${plane.ident}`} key={plane.ident}>
+              <div className="card">{plane.ident}</div>
+            </Link>
           ))}
         </div>
       )}
