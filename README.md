@@ -18,7 +18,7 @@ Run the following to take a look
 
 ## Next Steps
 
-There are MANY things I would like to do I were to continue this project. 
+There are MANY things I would like to do if I were to continue this project. 
 Since the instructions mentioned it should take 3 - 5 hours, I have decided to stop it here.
 Below are a couple of the next steps I would do if I were to continue working on this.
 
