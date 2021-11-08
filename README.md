@@ -10,7 +10,7 @@ https://github.com/brismol/fs-app-template
 Run the following to take a look
 
 * `npm install`
-* Create a postgres databases with the command `createdb flightpath`
+* Create a postgres database with the command `createdb flightpath`
 * Run `npm run start:dev`
 * navigate to http://localhost:8080/
 * click sign up to choose a username and password
