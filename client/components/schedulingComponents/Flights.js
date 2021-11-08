@@ -1,22 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { getFlights } from '../../store/flights';
 import { connect } from 'react-redux';
-import { FlightCard } from './FlightCard';
+import FlightCard from './FlightCard';
 import { addFlight } from '../../store/rotation';
 
-export const Flights = ({ flights, getFlights, rotation, addFlight }) => {
+export const Flights = ({
+  flights,
+  getFlights,
+  rotation,
+  addFlight,
+  filter,
+}) => {
   const [loading, setLoading] = useState(false);
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
     const loadFlights = async () => {
       setLoading(true);
-      await getFlights(offset);
+      console.log(filter);
+      await getFlights(offset, rotation, filter);
       setLoading(false);
     };
 
     loadFlights();
-  }, [offset]);
+  }, [offset, filter]);
 
   return (
     <div className="border flightsContainer">
@@ -26,21 +33,20 @@ export const Flights = ({ flights, getFlights, rotation, addFlight }) => {
         <div>
           <div>
             {flights.map((flight) => (
-              <FlightCard
-                addFlight={addFlight}
-                flight={flight}
-                key={flight.id}
-              />
+              <FlightCard click={addFlight} flight={flight} key={flight.id} />
             ))}
           </div>
           <div className="buttons">
             <button
+              className="pointer"
               onClick={() => setOffset(offset - 25)}
               disabled={offset < 25}
             >
               Previous
             </button>
-            <button onClick={() => setOffset(offset + 25)}>Next</button>
+            <button className="pointer" onClick={() => setOffset(offset + 25)}>
+              Next
+            </button>
           </div>
         </div>
       )}

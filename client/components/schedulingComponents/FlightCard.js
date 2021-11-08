@@ -1,19 +1,53 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export const FlightCard = ({ flight, addFlight }) => {
+const FlightCard = ({ flight, click, rotation, inSchedule }) => {
+  const lastFlight = rotation[rotation.length - 1];
+
+  let classes = 'card';
+  let clickable = click;
+
+  if (inSchedule) {
+    classes += ' blue';
+  } else {
+    if (lastFlight) {
+      if (
+        lastFlight.destination != flight.origin ||
+        flight.departuretime < lastFlight.arrivaltime + 1200
+      ) {
+        classes = 'unclickable';
+        clickable = () => {};
+      }
+    }
+  }
+
   return (
-    <div className="card" onClick={() => addFlight(flight)}>
-      <h4>Flight: {flight.id}</h4>
+    <div className={classes} onClick={() => clickable(flight)}>
+      <h4 className="textCenter">Flight: {flight.id}</h4>
       <div>
-        <p>
-          {flight.origin} {'->'} {flight.destination}
-        </p>
-        <p>
-          {new Date(flight.departuretime * 1000).toISOString().substr(11, 5)}{' '}
-          {'->'}{' '}
-          {new Date(flight.arrivaltime * 1000).toISOString().substr(11, 5)}
-        </p>
+        <div className="buttons">
+          <span>{flight.origin}</span>
+          <img src="/line.png" width="50px"></img>
+          <span>{flight.destination}</span>
+        </div>
+        <div className="buttons">
+          <span>
+            {new Date(flight.departuretime * 1000).toISOString().substr(11, 5)}
+          </span>
+
+          <span>
+            {new Date(flight.arrivaltime * 1000).toISOString().substr(11, 5)}
+          </span>
+        </div>
       </div>
     </div>
   );
 };
+
+const mapState = ({ rotation }) => {
+  return {
+    rotation: rotation || [],
+  };
+};
+
+export default connect(mapState)(FlightCard);

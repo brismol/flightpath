@@ -33,6 +33,10 @@ form div {
     padding: 0 2rem;
   }
 
+  .flex {
+      display: flex;
+  }
+
 
   #mainGrid {
     display: grid;
@@ -58,9 +62,13 @@ form div {
   }
 
   .flightsContainer{
-      height: 75vh;
+      height: 60vh;
       overflow: scroll;
       padding: 1rem;
+  }
+
+  .scroll {
+      overflow: scroll;
   }
 
 
@@ -78,11 +86,58 @@ form div {
     box-shadow: 3px 2px 2px lightblue;
 }
 
+.blue {
+    background-color:  #e6f5ff;
+}
+
 .card {
-    padding: .5rem;
-    border-radius: 5%;
+    padding: 1rem;
+    border-radius: 25px;
+    margin: .2rem
+}
+
+.unclickable {
+    padding: 1rem;
+    border-radius: 25px;
+    background-color: gray;
+    margin: .2rem
 }
 
 .center {
     margin: auto;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+h4 {
+    margin: 0 0 1rem 0;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+/* .idle {
+    background-color: gray;
+    height: 2rem;
+}
+
+.turnaround {
+    background-color: purple;
+    height: 2rem;
+}
+
+.service {
+    background-color: green;
+    height: 2rem;
+} */
+
+.pointer:hover {
+    cursor: pointer;
 }
