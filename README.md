@@ -27,3 +27,9 @@ Below are a couple of the next steps I would do if I were to continue working on
 *If I was allowed to edit the API, I would add support for filtering and searching and enable the flights to be filterable by flights that are addable to the rotation. As well as sorting the flights by departure time or origin
 
 *The rotation basically works as a stack at the moment, only allowing a flight to be added or removed from the end. I would be interested in trying to support editing the rotations at different points, but that would require a fair amount of rethinking how I set it up 
+
+*Lots of CSS and layout improvements
+
+*CSS for different screen sizes
+
+*And tons of other stuff
