@@ -25,3 +25,5 @@ Below are a couple of the next steps I would do if I were to continue working on
 *To support multiple planes, I would probably refactor the rotation store to be an array of objects, with a key for the planeId, and another for the array of scheduled flights
 
 *If I was allowed to edit the API, I would add support for filtering and searching and enable the flights to be filterable by flights that are addable to the rotation. As well as sorting the flights by departure time or origin
+
+*The rotation basically works as a stack at the moment, only allowing a flight to be added or removed from the end. I would be interested in trying to support editing the rotations at different points, but that would require a fair amount of rethinking how I set it up 
