@@ -13,13 +13,14 @@ const fetchedFlights = (flights) => ({ type: FETCHED_FLIGHTS, flights });
 /**
  * THUNK CREATORS
  */
-export const getFlights = (offset = 0, rotation, filter) => {
-  //I think I have to store offset in state
+export const getFlights = (offset = 0, rotation, filter, planeId) => {
   return async (dispatch) => {
     let flights = [];
-    if (filter && rotation.length > 0) {
+
+    if (filter && rotation.length > 0 && planeId) {
+      offset = 0;
       const lastFlight = rotation[rotation.length - 1];
-      while (flights.length < 25 && offset < 1323) {
+      while (offset < 1323) {
         const res = await axios.get(
           'https://infinite-dawn-93085.herokuapp.com/flights',
           { params: { offset: offset, limit: 25 } }
@@ -33,6 +34,7 @@ export const getFlights = (offset = 0, rotation, filter) => {
             );
           }),
         ];
+        if (flights.length < 25) offset += 25;
       }
     } else {
       const res = await axios.get(
@@ -43,6 +45,7 @@ export const getFlights = (offset = 0, rotation, filter) => {
     }
 
     dispatch(fetchedFlights(flights));
+    return offset;
   };
 };
 

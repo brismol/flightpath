@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const FlightCard = ({ flight, click, rotation, inSchedule }) => {
+const FlightCard = ({ flight, click, rotation, inSchedule, planeId }) => {
   const lastFlight = rotation[rotation.length - 1];
 
   let classes = 'card';
@@ -10,7 +10,10 @@ const FlightCard = ({ flight, click, rotation, inSchedule }) => {
   if (inSchedule) {
     classes += ' blue';
   } else {
-    if (lastFlight) {
+    if (!planeId) {
+      classes = 'unclickable';
+      clickable = () => {};
+    } else if (lastFlight) {
       if (
         lastFlight.destination != flight.origin ||
         flight.departuretime < lastFlight.arrivaltime + 1200

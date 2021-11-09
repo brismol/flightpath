@@ -79,6 +79,10 @@ form div {
     justify-content: space-between;
 }
 
+.right {
+    float: right;
+}
+
 .card:hover {
     background-color:  #e6f5ff;
     transition: 1s;
@@ -93,7 +97,8 @@ form div {
 .card {
     padding: 1rem;
     border-radius: 25px;
-    margin: .2rem
+    margin: .2rem;
+    background-color:  #e6f5ff;
 }
 
 .unclickable {
@@ -123,20 +128,6 @@ h4 {
     float: right;
 }
 
-/* .idle {
-    background-color: gray;
-    height: 2rem;
-}
-
-.turnaround {
-    background-color: purple;
-    height: 2rem;
-}
-
-.service {
-    background-color: green;
-    height: 2rem;
-} */
 
 .pointer:hover {
     cursor: pointer;

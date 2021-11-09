@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-export const TimeVisual = ({ rotation }) => {
+export const TimeVisual = ({ rotation, planeId }) => {
   //build divs and calculate widths for timeline
   const buildVisualizerDivs = (rotation) => {
     let divs = [];
@@ -47,7 +47,7 @@ export const TimeVisual = ({ rotation }) => {
     };
   };
 
-  let divs = buildVisualizerDivs(rotation);
+  let divs = planeId ? buildVisualizerDivs(rotation) : buildVisualizerDivs([]);
 
   return (
     <div id="timeVisualize">
