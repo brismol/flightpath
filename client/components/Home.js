@@ -34,7 +34,6 @@ export const Home = ({ history }) => {
       </h4>
       <div className="buttons">
         <p>
-          Flights
           <strong>Flights</strong>
         </p>
         <p>

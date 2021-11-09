@@ -1,77 +1,35 @@
-# FS-App-Template
 
-## Setup
+## Template
 
-To use this as boilerplate, you'll need to take the following steps:
+I used an app-template from FullStack Academy as the starting point for this project. The auth set up and some other basic scaffolding was already in place so I want to be careful not to claim credit for that. To see what code was in the template I started with you can take a look at the following repo.
 
-* Don't fork or clone this repo! Instead, create a new, empty
-  directory on your machine and `git init` (or create an empty repo on
-  Github and clone it to your local machine)
+https://github.com/brismol/FSA-App-Template
 
-* Now you will have to add the fs-app-template as a remote and merge it into your own repository.
+## Get Started
 
-```
-git remote add boilermaker git@github.com:FullstackAcademy/fs-app-template.git
-git fetch boilermaker
-git merge boilermaker/main
-git branch -m master main
-```
+Run the following to take a look
 
-## Customize
-
-Now that you've got the code, follow these steps to get acclimated:
-
-* Update project name and description in `package.json`
 * `npm install`
-* Create two postgres databases (`MY_APP_NAME` should match the `name`
-  parameter in `package.json`):
-* These commands will create both your **development** and **test** databases
-
-```
-createdb <YOUR APP NAME HERE FROM package.json>
-createdb <YOUR APP NAME HERE FROM package.json>-test
-```
-
-* By default, running `npm test` will use your test database, while
-  regular development uses development database
-
-## Start
-
-Sync and seed your database by running `npm run seed`. Running `npm run start:dev` will make great things happen!
-
-- start:dev will both start your server and build your client side files using webpack
-- start:dev:logger is the same as start:dev, but you will see your SQL queries (can be helpful for debugging)
-- start:dev:seed will start your server and also seed your database (this is useful when you are making schema changes and you don't want to run your seed script separately)
+* Create a postgres database with the command `createdb flightpath`
+* Run `npm run start:dev`
+* navigate to http://localhost:8080/
+* click sign up to choose a username and password
 
 
-### Heroku
+## Next Steps
 
-1.  Set up the [Heroku command line tools][heroku-cli]
-2.  `heroku login`
-3.  Add a git remote for heroku:
+There are MANY things I would like to do if I were to continue this project. 
+Since the instructions mentioned it should take 3 - 5 hours, I have decided to stop it here.
+Below are a couple of the next steps I would do if I were to continue working on this.
 
-[heroku-cli]: https://devcenter.heroku.com/articles/heroku-cli
+*To support multiple planes, I would probably refactor the rotation store to be an array of objects, with a key for the planeId, and another for the array of scheduled flights
 
-* **If you are creating a new app...**
+*If I was allowed to edit the API, I would add support for filtering and searching and enable the flights to be filterable by flights that are addable to the rotation. As well as sorting the flights by departure time or origin
 
-  1.  `heroku create` or `heroku create your-app-name` if you have a
-      name in mind.
-  2.  `heroku config:set JWT=<your secret here!>` to set a secret for JWT signing
+*The rotation basically works as a stack at the moment, only allowing a flight to be added or removed from the end. I would be interested in trying to support editing the rotations at different points, but that would require a fair amount of rethinking how I set it up 
 
-Database Setup
+*Lots of CSS and layout improvements
 
-  3.  `heroku addons:create heroku-postgresql:hobby-dev` to add
-      ("provision") a postgres database to your heroku dyno (This creates your production database)
+*CSS for different screen sizes
 
-  4.  `heroku config:set SEED=true` to get heroku to sync and seed your database
-
-  5.   note everytime your app restarts, the database tables will be dropped and re-created. To avoid this you can `config:unset SEED`
-
-
-* **If you already have a Heroku app...**
-
-  1.  `heroku git:remote your-app-name` You'll need to be a
-      collaborator on the app.
-
-
-Now, you should be deployed!
+*And tons of other stuff
