@@ -1,7 +1,7 @@
 
 ## Template
 
-I used an app-template from FullStack Academy as the starting point for this project. The auth set up and some other basic scaffolding was already in place so I want to be careful not to claim credit for that. To see what code was in the template I started with you can take a look at the following repo.
+I used an app-template from FullStack Academy as the starting point for this project. The auth set up and some other basic scaffolding was already in place so I want to be careful not to claim credit for that. To see what code was in the template when I started with you can take a look at the following repo.
 
 https://github.com/brismol/FSA-App-Template
 
