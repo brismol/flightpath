@@ -35,4 +35,4 @@ Below are a couple of the next steps I would do if I were to continue working on
 *And tons of other stuff
 
 
-## Thanks for you consideration!!
+## Thanks for your consideration!!
