@@ -10,20 +10,20 @@ export const Flights = ({
   rotation,
   addFlight,
   filter,
+  planeId,
 }) => {
   const [loading, setLoading] = useState(false);
   const [offset, setOffset] = useState(0);
 
-  useEffect(() => {
-    const loadFlights = async () => {
-      setLoading(true);
-      console.log(filter);
-      await getFlights(offset, rotation, filter);
-      setLoading(false);
-    };
+  const loadFlights = async () => {
+    setLoading(true);
+    await getFlights(offset, rotation, filter, planeId);
+    setLoading(false);
+  };
 
+  useEffect(() => {
     loadFlights();
-  }, [offset, filter]);
+  }, [filter, rotation, offset, planeId]);
 
   return (
     <div className="border flightsContainer">
@@ -32,22 +32,43 @@ export const Flights = ({
       ) : (
         <div>
           <div>
-            {flights.map((flight) => (
-              <FlightCard click={addFlight} flight={flight} key={flight.id} />
-            ))}
+            {flights.length > 0 ? (
+              <div>
+                {flights.map((flight) => (
+                  <FlightCard
+                    click={addFlight}
+                    flight={flight}
+                    key={flight.id}
+                    planeId={planeId}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div>
+                There are no remaining flights that can be added to this
+                rotation
+              </div>
+            )}
           </div>
-          <div className="buttons">
-            <button
-              className="pointer"
-              onClick={() => setOffset(offset - 25)}
-              disabled={offset < 25}
-            >
-              Previous
-            </button>
-            <button className="pointer" onClick={() => setOffset(offset + 25)}>
-              Next
-            </button>
-          </div>
+          {/* only show buttons when filter is false, at least one flight in rotation, and a plane is selected */}
+          {(!filter || rotation.length === 0 || !planeId) && (
+            <div className="buttons">
+              <button
+                className="pointer"
+                onClick={() => setOffset(offset - 25)}
+                disabled={offset < 25}
+              >
+                Previous
+              </button>
+              <button
+                className="pointer"
+                onClick={() => setOffset(offset + 25)}
+                disabled={offset > 1323}
+              >
+                Next
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -63,7 +84,8 @@ const mapState = ({ flights, rotation }) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    getFlights: (offset) => dispatch(getFlights(offset)),
+    getFlights: (offset, rotation, filter, planeId) =>
+      dispatch(getFlights(offset, rotation, filter, planeId)),
     addFlight: (flight) => dispatch(addFlight(flight)),
   };
 };

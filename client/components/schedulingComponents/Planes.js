@@ -37,7 +37,7 @@ export const Planes = ({ planes, getPlanes, rotation }) => {
           {planes.map((plane) => (
             <Link to={`/${plane.ident}`} key={plane.ident}>
               <div className="card">
-                <div>{plane.ident}</div>
+                <h4>Aircraft: {plane.ident}</h4>
                 <div>Usage: {usagePercent}%</div>
               </div>
             </Link>

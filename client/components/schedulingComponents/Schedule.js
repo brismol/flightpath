@@ -4,14 +4,7 @@ import { connect } from 'react-redux';
 import FlightCard from './FlightCard';
 import { removeFlight } from '../../store/rotation';
 
-export const Schedule = ({ rotation, removeFlight }) => {
-  const params = useParams();
-  const [planeId, setPlaneId] = useState(params.planeId);
-
-  useEffect(() => {
-    setPlaneId(params.planeId);
-  }, [params]);
-
+export const Schedule = ({ rotation, removeFlight, planeId }) => {
   return (
     <div className="border span-2 flightsContainer">
       <div></div>
@@ -24,6 +17,7 @@ export const Schedule = ({ rotation, removeFlight }) => {
                 key={flight.id}
                 click={removeFlight}
                 inSchedule={true}
+                planeId={planeId}
               />
             ))
           ) : (
